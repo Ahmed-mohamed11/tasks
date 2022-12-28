@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  labels:
+    app: ahmed
+spec:
+  selector:
+    matchLabels:
+      app: ahmed
+  replicas: 3
+  template:
+    metadata:
+      name: ahmed
+      labels:
+        app: ahmed
+    spec:
+      containers:
+        - image: ahmedmohamed00qqqq/test
+         
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80   
+          name: nginx-container
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
